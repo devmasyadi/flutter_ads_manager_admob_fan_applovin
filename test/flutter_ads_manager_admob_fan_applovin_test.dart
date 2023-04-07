@@ -32,7 +32,7 @@ class MockFlutterAdsManagerAdmobFanApplovinPlatform
   }
 
   @override
-  void loadGdpr(
+  Future<void> loadGdpr(
       BuildContext context,
       bool childDirected,
       NetworkAds primaryAds,
@@ -40,6 +40,7 @@ class MockFlutterAdsManagerAdmobFanApplovinPlatform
       NetworkAds? tertiaryAds,
       NetworkAds? quaternaryAds) {
     // TODO: implement loadGdpr
+    return Future.value();
   }
 
   @override
@@ -71,7 +72,7 @@ class MockFlutterAdsManagerAdmobFanApplovinPlatform
   }
 
   @override
-  void setTestDevices(
+  Future<void> setTestDevices(
       BuildContext context,
       List<String> testDevices,
       NetworkAds primaryAds,
@@ -79,6 +80,7 @@ class MockFlutterAdsManagerAdmobFanApplovinPlatform
       NetworkAds? tertiaryAds,
       NetworkAds? quaternaryAds) {
     // TODO: implement setTestDevices
+    return Future.value();
   }
 
   @override

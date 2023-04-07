@@ -92,8 +92,8 @@ class MethodChannelFlutterAdsManagerAdmobFanApplovin
       NetworkAds? secondaryAds,
       NetworkAds? tertiaryAds,
       NetworkAds? quaternaryAds) async {
-         List<Future> futures = [
-        handleAds.loadGdpr(context, childDirected, primaryAds);
+    List<Future> futures = [
+      handleAds.loadGdpr(context, childDirected, primaryAds)
     ];
     if (secondaryAds != null) {
       futures.add(handleAds.loadGdpr(context, childDirected, secondaryAds));
@@ -104,7 +104,7 @@ class MethodChannelFlutterAdsManagerAdmobFanApplovin
     if (quaternaryAds != null) {
       futures.add(handleAds.loadGdpr(context, childDirected, quaternaryAds));
     }
-     await Future.wait(futures);
+    await Future.wait(futures);
   }
 
   @override
