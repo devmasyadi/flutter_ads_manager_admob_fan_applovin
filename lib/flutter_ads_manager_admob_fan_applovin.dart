@@ -37,7 +37,7 @@ class FlutterAdsManagerAdmobFanApplovin {
         quaternaryAppId);
   }
 
-  void loadGdpr(
+  Future<void> loadGdpr(
       BuildContext context,
       bool childDirected,
       NetworkAds primaryAds,
@@ -92,7 +92,7 @@ class FlutterAdsManagerAdmobFanApplovin {
         adUnitQuaternaryId);
   }
 
-  void setTestDevices(
+  Future<void> setTestDevices(
       BuildContext context,
       List<String> testDevices,
       NetworkAds primaryAds,

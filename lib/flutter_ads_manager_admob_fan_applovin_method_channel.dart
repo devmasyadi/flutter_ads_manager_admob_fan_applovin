@@ -85,23 +85,26 @@ class MethodChannelFlutterAdsManagerAdmobFanApplovin
   }
 
   @override
-  void loadGdpr(
+  Future<void> loadGdpr(
       BuildContext context,
       bool childDirected,
       NetworkAds primaryAds,
       NetworkAds? secondaryAds,
       NetworkAds? tertiaryAds,
-      NetworkAds? quaternaryAds) {
-    handleAds.loadGdpr(context, childDirected, primaryAds);
+      NetworkAds? quaternaryAds) async {
+         List<Future> futures = [
+        handleAds.loadGdpr(context, childDirected, primaryAds);
+    ];
     if (secondaryAds != null) {
-      handleAds.loadGdpr(context, childDirected, secondaryAds);
+      futures.add(handleAds.loadGdpr(context, childDirected, secondaryAds));
     }
     if (tertiaryAds != null) {
-      handleAds.loadGdpr(context, childDirected, tertiaryAds);
+      futures.add(handleAds.loadGdpr(context, childDirected, tertiaryAds));
     }
     if (quaternaryAds != null) {
-      handleAds.loadGdpr(context, childDirected, quaternaryAds);
+      futures.add(handleAds.loadGdpr(context, childDirected, quaternaryAds));
     }
+     await Future.wait(futures);
   }
 
   @override
@@ -154,23 +157,29 @@ class MethodChannelFlutterAdsManagerAdmobFanApplovin
   }
 
   @override
-  void setTestDevices(
+  Future<void> setTestDevices(
       BuildContext context,
       List<String> testDevices,
       NetworkAds primaryAds,
       NetworkAds? secondaryAds,
       NetworkAds? tertiaryAds,
-      NetworkAds? quaternaryAds) {
-    handleAds.setTestDevices(context, testDevices, primaryAds);
+      NetworkAds? quaternaryAds) async {
+    List<Future> futures = [
+      handleAds.setTestDevices(context, testDevices, primaryAds),
+    ];
+
     if (secondaryAds != null) {
-      handleAds.setTestDevices(context, testDevices, secondaryAds);
+      futures.add(handleAds.setTestDevices(context, testDevices, secondaryAds));
     }
     if (tertiaryAds != null) {
-      handleAds.setTestDevices(context, testDevices, tertiaryAds);
+      futures.add(handleAds.setTestDevices(context, testDevices, tertiaryAds));
     }
     if (quaternaryAds != null) {
-      handleAds.setTestDevices(context, testDevices, quaternaryAds);
+      futures
+          .add(handleAds.setTestDevices(context, testDevices, quaternaryAds));
     }
+
+    await Future.wait(futures);
   }
 
   @override

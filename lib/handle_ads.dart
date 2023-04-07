@@ -42,50 +42,52 @@ class HandleAds {
     }
   }
 
-  void setTestDevices(
+  Future<void> setTestDevices(
     BuildContext context,
     List<String> testDevices,
     NetworkAds networkAds,
-  ) {
+  ) async {
     switch (networkAds) {
       case NetworkAds.ADMOB:
-        admobAds.setTestDevices(context, testDevices);
+        await admobAds.setTestDevices(context, testDevices);
         break;
       case NetworkAds.FAN:
-        fanAds.setTestDevices(context, testDevices);
+        await fanAds.setTestDevices(context, testDevices);
         break;
       case NetworkAds.APPLOVIN_MAX:
-        applovinMaxAds.setTestDevices(context, testDevices);
+        await applovinMaxAds.setTestDevices(context, testDevices);
         break;
       case NetworkAds.APPLOVIN_DISCOVERY:
-        applovinDiscoveryAds.setTestDevices(context, testDevices);
+        await applovinDiscoveryAds.setTestDevices(context, testDevices);
         break;
       default:
         break;
     }
+    return Future.value();
   }
 
-  void loadGdpr(
+  Future<void> loadGdpr(
     BuildContext context,
     bool childDirected,
     NetworkAds networkAds,
-  ) {
+  ) async {
     switch (networkAds) {
       case NetworkAds.ADMOB:
-        admobAds.loadGdpr(context, childDirected);
+        await admobAds.loadGdpr(context, childDirected);
         break;
       case NetworkAds.FAN:
-        fanAds.loadGdpr(context, childDirected);
+        await fanAds.loadGdpr(context, childDirected);
         break;
       case NetworkAds.APPLOVIN_MAX:
-        applovinMaxAds.loadGdpr(context, childDirected);
+        await applovinMaxAds.loadGdpr(context, childDirected);
         break;
       case NetworkAds.APPLOVIN_DISCOVERY:
-        applovinDiscoveryAds.loadGdpr(context, childDirected);
+        await applovinDiscoveryAds.loadGdpr(context, childDirected);
         break;
       default:
         break;
     }
+    return Future.value();
   }
 
   void showBanner(

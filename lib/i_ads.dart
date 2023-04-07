@@ -19,7 +19,7 @@ abstract class IAds {
     String? quaternaryAppId,
   );
 
-  void setTestDevices(
+  Future<void> setTestDevices(
     BuildContext context,
     List<String> testDevices,
     NetworkAds primaryAds,
@@ -28,7 +28,7 @@ abstract class IAds {
     NetworkAds? quaternaryAds,
   );
 
-  void loadGdpr(
+  Future<void> loadGdpr(
     BuildContext context,
     bool childDirected,
     NetworkAds primaryAds,
